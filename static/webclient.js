@@ -4,9 +4,9 @@ chat_position = 0;
 
 function setup()
 {
-	textinput = document.getElementById("textinput");
+	text_input = document.getElementById("text_input");
 	message_area = document.getElementById("message_area");
-	textinput.addEventListener("keyup", event => {
+	text_input.addEventListener("keyup", event => {
 		if (event.key !== "Enter")
 			return;
 		enviar();
@@ -16,8 +16,8 @@ function setup()
 
 function enviar()
 {
-	texto = textinput.value;
-	textinput.value = "";
+	texto = text_input.value;
+	text_input.value = "";
 	datos = Object();
 	datos.chat_id = chat_id;
 	datos.payload = texto;

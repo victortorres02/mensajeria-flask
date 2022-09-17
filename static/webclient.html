@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mensajeria flask Webclient</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<title>Mensajeria flask Webclient</title>
 </head>
 <body>
 	<script src="/static/webclient.js" type="text/javascript" charset="utf-8"></script>
-	<div id="message_area">
+	<h1 class="p-2">Mensajeria Flask</h1>
+	<div class="container-fluid">
+		<div id="message_area"></div>
+		<input type="text" id="text_input"></input>
+		<input id="submit_btn" onclick="enviar" type="button" value="Enviar"></input>
 	</div>
-	<input type="text" id="textinput">
-	</input>
-	<input id="submit_btn" onclick="enviar" type="button" value="Enviar">
-	</input>
 </body>
 </html>
