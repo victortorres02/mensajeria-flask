@@ -6,11 +6,13 @@ function setup()
 {
 	text_input = document.getElementById("text_input");
 	message_area = document.getElementById("message_area");
+
 	text_input.addEventListener("keyup", event => {
 		if (event.key !== "Enter")
 			return;
 		enviar();
 	});
+
 	init_sync();
 }
 
@@ -18,51 +20,42 @@ function enviar()
 {
 	texto = text_input.value;
 	text_input.value = "";
+
 	datos = Object();
 	datos.chat_id = chat_id;
 	datos.payload = texto;
-	const xhttp = new XMLHttpRequest();
-	//xhttp.onload = function(){console.log(this)};
-	xhttp.open("POST", "/api/web/post_msg");
-	xhttp.setRequestHeader("Content-Type", "application/json");
-	xhttp.send(JSON.stringify(datos));
+
+	fetch("/api/web/post_msg", {
+		method: 'POST',
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(datos)
+	})
+	.catch(error => {
+		console.error("Error al enviar el mensaje", error);
+	});
 }
 
 
-function sync(resolve, reject)
+function get_messages()
 {
-	const xhttp = new XMLHttpRequest();
-	xhttp.onload = http => {
-		request = http.target;
-		//console.log(request);
-		if (request.status == 200)
-		{
-			console.log(request.responseText);
-			response = JSON.parse(request.responseText);
-			console.log("syncing", response.messages.length, "messages");
-			//console.log(resolve);
-			resolve(response);
-			return;
-		}
-		reject();
-	};
-	xhttp.ontimeout = () => {
-		console.log("sync request timed out");
-		reject();
-	}
-	xhttp.timeout = 7000;
-	xhttp.open("GET",
+	return fetch(
 		"/api/web/get_msgs?chat_id=" + chat_id +
 		"&position=" + chat_position +
-		"&max_messages=40");
-	xhttp.send();
+		"&max_messages=40")
+	.then(response => {
+		if (!response.ok)
+			throw new Error("Servidor regresó un error");
+		return response;
+	})
+	.then(response => response.json());
 }
 
 
 function init_sync()
 {
-	let sync_promise = new Promise(sync);
-	return sync_promise.then(
+	return get_messages().then(
 		value => {
 			if (value.messages.length == 0)
 			{
@@ -74,7 +67,7 @@ function init_sync()
 				return init_sync();
 			}
 		}, error => {
-			console.log("Error syncing:", error);
+			console.error("Error al sincronizar:", error);
 			setTimeout(init_sync, 2000);
 		});
 }
