@@ -57,6 +57,8 @@ def get_msgs():
                 })
     except ValueError:
         abort(400)
+    except FileNotFoundError:
+        return {'messages':[]}
     return {
             'messages':msgs,
             }
