@@ -85,6 +85,8 @@ function add_chat_msg(message)
 {
 	chat_position = message.position;
 	let elem = document.createElement("p");
+	elem.classList.add("text-message");
+	elem.classList.add("px-2");
 	elem.appendChild(document.createTextNode(message.payload));
 	message_area.appendChild(elem);
 }

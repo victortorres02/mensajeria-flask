@@ -7,12 +7,25 @@
 	<title>Mensajeria flask Webclient</title>
 </head>
 <body>
+<style>
+body {
+	background-color: #102537;
+}
+.text-message {
+	width: max-content;
+	color: #F5F5F5;
+	background-color: #446874;
+	border-radius:5px;
+}
+</style>
 	<script src="/static/webclient.js" type="text/javascript" charset="utf-8"></script>
-	<h1 class="p-2">Mensajeria Flask</h1>
+	<h1 class="p-2 text-white">Mensajeria Flask</h1>
 	<div class="container-fluid">
 		<div id="message_area"></div>
-		<input type="text" id="text_input"></input>
-		<input id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
+		<div class="container">
+			<input class="col-6" type="text" id="text_input"></input>
+			<input class="col-1" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
+		</div>
 	</div>
 </body>
 </html>

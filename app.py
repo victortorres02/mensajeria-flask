@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def root():
     #return 'Hey, you!'
-    return redirect('static/webclient.html')
+    return redirect('static/login.html')
 
 @app.route('/api/web/post_msg', methods=['POST'])
 def post_msg():
