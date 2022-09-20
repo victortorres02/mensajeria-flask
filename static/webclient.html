@@ -9,7 +9,9 @@
 <body>
 <style>
 body {
-	background-color: #102537;
+	background: linear-gradient(155deg, #102537, #5050A0);
+	background-attachment: fixed;
+	background-size: cover;
 }
 .text-message {
 	width: max-content;
@@ -22,7 +24,7 @@ body {
 	<h1 class="p-2 text-white">Mensajeria Flask</h1>
 	<div class="container-fluid">
 		<div id="message_area"></div>
-		<div class="container">
+		<div class="container-fluid">
 			<input class="col-6" type="text" id="text_input"></input>
 			<input class="col-1" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
 		</div>
