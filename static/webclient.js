@@ -19,6 +19,9 @@ function setup()
 function enviar()
 {
 	texto = text_input.value;
+	// No enviar texto en blanco
+	if (!texto || !texto.trim())
+		return;
 	text_input.value = "";
 
 	datos = Object();
