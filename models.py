@@ -15,7 +15,7 @@ class User(Base):
 
 class SessionId(Base):
     __tablename__ = 'session_ids'
-    token = Column(String(50), primary_key=True)
+    token = Column(String(64), primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'), primary_key=True)
     creation_time = Column(TIMESTAMP, nullable=False)
     last_use_time = Column(TIMESTAMP, nullable=False)
