@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, scoped_session, sessionmaker
+from sqlalchemy.orm import registry, sessionmaker
 
 engine = create_engine('sqlite:///database.db', echo=True)
-Base = declarative_base()
+mapper_registry = registry()
+Base = mapper_registry.generate_base()
 Session = sessionmaker(engine)
 
 def init_db():
