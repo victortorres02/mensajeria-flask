@@ -12,14 +12,14 @@
   <body>
     <div class="login-form">
       <h1 class="p-4">Inicio de Sesión</h1>
-      <form class="px-5 pt-4" method="get" action="/static/webclient.html">
+      <form class="px-5 pt-4" method="post" action="/login">
         <div class="Username p-1">
-          <input type="text" required>
+          <input name="username" type="text" required>
           <label>Nombre de Usuario</label>
         </div>  
 
       <div class="contraseña p-1">
-        <input type="password" required>
+        <input name="password" type="password" required>
         <label>Contraseña</label>
       </div>
 

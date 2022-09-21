@@ -1,11 +1,24 @@
 from flask import Flask, request, abort, redirect, url_for
+from auth import create_session, InvalidCredentialsError
 
 app = Flask(__name__)
 
 @app.route('/')
 def root():
-    #return 'Hey, you!'
-    return redirect('static/login.html')
+    return redirect('/static/login.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    try:
+        token = create_session(username, password)
+        response = redirect('/static/webclient.html')
+        response.set_cookie('sid', value=token)
+        return response, 302
+    except InvalidCredentialsError:
+        abort(401)
+
 
 @app.route('/api/web/post_msg', methods=['POST'])
 def post_msg():
