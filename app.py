@@ -1,30 +1,33 @@
 from flask import Flask, request, abort, redirect, url_for
-from auth import create_session, InvalidCredentialsError
+from auth import needs_session, create_session, InvalidCredentialsError
 
 app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return redirect('/static/login.html')
+    return redirect(url_for('login'))
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
+    if request.method == 'GET':
+        return redirect('/static/login.html')
     username = request.form['username']
     password = request.form['password']
     try:
         token = create_session(username, password)
         response = redirect('/static/webclient.html')
-        response.set_cookie('sid', value=token)
+        response.set_cookie('user', secure=True, httponly=True, value=username)
+        response.set_cookie('sid', secure=True, httponly=True, value=token)
         return response, 302
     except InvalidCredentialsError:
         abort(401)
 
 
 @app.route('/api/web/post_msg', methods=['POST'])
+@needs_session
 def post_msg():
     chat_id = request.json['chat_id']
     payload = request.json['payload']
-    # TODO: Verificar usuario y sus permisos para escribir el mensaje
     app.logger.debug(f'chat_id <{chat_id}> payload <{payload}>')
     try:
         write_msg(chat_id, payload)
@@ -52,6 +55,7 @@ def read_msg(chat_id, position):
         return msg, pos
 
 @app.route('/api/web/get_msgs')
+@needs_session
 def get_msgs():
     chat_id = request.values['chat_id']
     position = request.values.get('position', 0, type=int)
