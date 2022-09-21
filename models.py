@@ -9,7 +9,7 @@ class User(Base):
     email = Column(String(90), nullable=False, unique=True)
     hashed_password = Column(String(127), nullable=False)
     sessions = relationship(
-            'SessionId', back_populates='user')
+            'SessionId', back_populates='user', cascade='all, delete-orphan')
     def __repr__(self):
         return f'<User {self.username} ({self.email})>'
 
