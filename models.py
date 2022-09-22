@@ -19,6 +19,7 @@ class SessionId(Base):
     user_id = Column(Integer, ForeignKey('users.id'), primary_key=True)
     creation_time = Column(TIMESTAMP, nullable=False)
     last_use_time = Column(TIMESTAMP, nullable=False)
+    expire_time   = Column(TIMESTAMP, nullable=False)
     user = relationship (
             'User', back_populates='sessions')
 

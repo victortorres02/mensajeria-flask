@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import and_
 from sqlalchemy.exc import NoResultFound
 from secrets import token_urlsafe
-from datetime import datetime
+from datetime import datetime, timedelta
 from database import Session
 from models import User, SessionId, InvalidCredentialsError
 
@@ -20,9 +20,11 @@ def create_session(username, password):
             raise InvalidCredentialsError('Invalid password')
         token = token_urlsafe(48)
         timestamp = datetime.now()
+        expire_time = timestamp + timedelta(hours=1)
         session.add(SessionId(
             token=token, user_id=user.id,
-            creation_time=timestamp, last_use_time=timestamp))
+            creation_time=timestamp, last_use_time=timestamp,
+            expire_time=expire_time))
         session.commit()
         return token
 
@@ -33,7 +35,7 @@ def create_user(username, email, password):
             hashed_password=generate_password_hash(password)))
         session.commit()
 
-def session_is_valid(username, token):
+def session_is_valid(username, token, update_last_use_time=True):
     with Session() as session:
         try:
             session_id = session.query(SessionId).join(User).where(
@@ -41,6 +43,15 @@ def session_is_valid(username, token):
                         User.username == username,
                         SessionId.token == token)
                     ).one()
+            timestamp = datetime.now()
+            if timestamp >= session_id.expire_time:
+                session.query(SessionId).where(
+                        SessionId.expire_time <= timestamp).delete()
+                session.commit()
+                return False
+            if update_last_use_time:
+                session_id.last_use_time = timestamp
+                session.commit()
             return True
         except NoResultFound:
             return False
