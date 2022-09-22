@@ -38,7 +38,7 @@ def session_is_valid(username, token):
         try:
             session_id = session.query(SessionId).join(User).where(
                     and_(
-                        User.username == 'torres',
+                        User.username == username,
                         SessionId.token == token)
                     ).one()
             return True
