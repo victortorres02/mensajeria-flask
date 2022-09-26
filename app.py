@@ -7,6 +7,10 @@ app = Flask(__name__)
 def root():
     return redirect(url_for('login'))
 
+@app.route('/favicon.ico')
+def favicon():
+    return redirect('/static/favicon.ico')
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'GET':
