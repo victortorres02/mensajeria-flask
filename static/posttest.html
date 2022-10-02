@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>POST test</title>
+</head>
+<body>
+	<script>
+	function enviar() {
+		url = target_url.value;
+		json = text_input.value;
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: json,
+		})
+		.then(response => response.text())
+		.then(text => response.value = text)
+		.catch(error => response.value = error.toString());
+	}
+	</script>
+	<p>
+		<label for="target_url">URL:</label>
+		<input type="text" id="target_url"></input>
+	</p>
+	<p>
+		<label for=text_input">JSON input</label>
+		<textarea id="text_input" cols="80" rows="10"></textarea>
+	</p>
+	<p>
+		<label for="response">Response:</label>
+		<textarea id="response" cols="80" rows="20"></textarea>
+	</p>
+	<p>
+		<input onclick="enviar()" type="button" value="Enviar"></input>
+	</p>
+</body>
+</html>
+
