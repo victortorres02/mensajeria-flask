@@ -25,24 +25,25 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="Estructura container">
-		<div class="row">
-			<div class="Contactos col-2">
-				Contactos Online</div>
-			<div class="Conversacion col-8">
-				Conversación abierta</div>
-			<div class="Configuracion col-2">
-				Configuracion</div>
+	<div class="Estructura row vw-100 vh-100">
+		<div class="Contactos col-2">
+			Contactos Online
+		</div>
+		<div class="Conversacion col-8">
+			Conversación abierta
+			<div class="Chat container-fluid">
+				<div class"overflow-auto" id="message_area"></div>
+				<div class="EntradaChat p-2">
+					<input class="" type="text" id="text_input"></input>
+					<input class="m-1" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
+				</div>
+			</div>
+		</div>
+		<div class="Configuracion col-2">
+			Configuracion
 		</div>
 	</div>
 
-	<div class="Chat container">
-		<div id="message_area"></div>
-		<div class="Mensaje ">
-			<input class="col-5" type="text" id="text_input"></input>
-			<input class="col-2" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
-		</div>
-	</div>
 </body>
 
 </html>
