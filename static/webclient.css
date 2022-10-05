@@ -1,0 +1,14 @@
+body {
+	background: linear-gradient(155deg, #102537, #5050A0);
+	background-attachment: fixed;
+	background-size: cover;
+}
+.text-message {
+	width: max-content;
+	color: #F5F5F5;
+	background-color: #446874;
+	border-radius:5px;
+}
+.bg-white{
+    background-color: #F5F5F5;
+}

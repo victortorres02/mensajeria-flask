@@ -4,30 +4,39 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/static/bootstrap.min.css">
+	<link rel="stylesheet" href="/static\webclient.css">
 	<title>Mensajeria flask Webclient</title>
 </head>
 <body>
-<style>
-body {
-	background: linear-gradient(155deg, #102537, #5050A0);
-	background-attachment: fixed;
-	background-size: cover;
-}
-.text-message {
-	width: max-content;
-	color: #F5F5F5;
-	background-color: #446874;
-	border-radius:5px;
-}
-</style>
+	
 	<script src="/static/webclient.js" type="text/javascript" charset="utf-8"></script>
-	<h1 class="p-2 text-white">Mensajeria Flask</h1>
-	<div class="container-fluid">
-		<div id="message_area"></div>
+	<nav class="navbar bg-dark">
 		<div class="container-fluid">
-			<input class="col-6" type="text" id="text_input"></input>
-			<input class="col-1" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
+		  <a class="navbar-brand" style="color: white;" href="#">Flasky
+			<img src="/Recursos\Tux.svg.png" alt="linuxpingu" width="30" height="24">
+		  </a>  
+			<ul class="nav justify-content-end">
+				<li class="nav-pills">
+					<a class="nav-link active" style="background-color: rgb(24, 36, 87);" aria-current="page" href="#">Cerrar sesion</a>
+				</li>
+			</ul>	  			 
+		</div>		
+	</nav>	  
+		<div class="container">			
+				<div class="col-xl-4">
+
+				</div>
+				<div class="col-xl-6">
+					<div class="position-absolute bottom-0 start-50 translate-middle-x">
+						<div id="message_area"></div>				git 
+						<input class="col-6" type="text" id="text_input"></input>
+						<input class="col-2" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>	
+					</div>
+				</div>
+				<div class="col-xl-2">			
+				
+			</div>
 		</div>
-	</div>
+	
 </body>
 </html>
