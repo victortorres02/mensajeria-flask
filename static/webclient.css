@@ -2,13 +2,44 @@ body {
 	background: linear-gradient(155deg, #102537, #5050A0);
 	background-attachment: fixed;
 	background-size: cover;
+	color: white;
 }
+
 .text-message {
 	width: max-content;
 	color: #F5F5F5;
 	background-color: #446874;
-	border-radius:5px;
+	border-radius: 5px;
 }
-.bg-white{
-    background-color: #F5F5F5;
+
+.bg-white {
+	background-color: #F5F5F5;
+}
+
+.Estructura {
+	background-color: rgb(37, 100, 182);
+	height: 50pc;
+}
+
+.Configuracion {
+	position:relative;
+	height: 50pc;
+	border: 2px solid white;
+	
+}
+
+.Contactos {
+	border: 2px solid white;
+}
+
+.Conversacion {
+	border: 1px solid white;
+
+}
+
+.Chat {
+	position: fixed;
+	top: 90%;
+	left: 30%;
+	
 }
