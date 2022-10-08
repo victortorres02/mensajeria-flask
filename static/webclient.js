@@ -1,6 +1,10 @@
+import SyncManager from "./webclient/sync_manager.js";
+import ChatRenderer from "./webclient/chat_renderer.js";
+import Chat from "./webclient/chat.js";
 
-chat_id = 1;
-chat_position = 0;
+
+var sync_manager;
+var chat_renderer;
 
 function setup()
 {
@@ -13,22 +17,36 @@ function setup()
 		enviar();
 	});
 
-	init_sync();
+	sync_manager = new SyncManager();
+	chat_renderer = new ChatRenderer(message_area);
+
+	let chat_watcher = new ChatWatcher();
+	let chat_selector = new ChatSelector(chat_watcher, chat_renderer, );
+	sync_manager.add_async_obj(chat_watcher);
 }
 
 function enviar()
 {
-	texto = text_input.value;
+	let texto = text_input.value;
 	// No enviar texto en blanco
 	if (!texto || !texto.trim())
 		return;
 	text_input.value = "";
 
-	datos = Object();
-	datos.chat_id = chat_id;
-	datos.payload = texto;
+	var chat_id;
+	if (chat_renderer.current_chat === undefined) {
+		console.error("current_chat sin especificar");
+		return;
+	}
+	else
+		chat_id = chat_renderer.current_chat.id;
 
-	fetch("/api/web/post_msg", {
+	let datos = Object();
+	datos.chat_id = chat_id;
+	datos.message_type = 1;
+	datos.message_data = texto;
+
+	fetch("/api/web/send_message", {
 		method: 'POST',
 		headers: {
 			"Content-Type": "application/json",
@@ -40,61 +58,5 @@ function enviar()
 	});
 }
 
-
-function get_messages()
-{
-	return fetch(
-		"/api/web/get_msgs?chat_id=" + chat_id +
-		"&position=" + chat_position +
-		"&max_messages=40")
-	.then(response => {
-		if (!response.ok)
-			throw new Error("Servidor regresó un error");
-		return response;
-	})
-	.then(response => response.json());
-}
-
-
-function init_sync()
-{
-	return get_messages().then(
-		value => {
-			if (value.messages.length == 0)
-			{
-				setTimeout(init_sync, 250);
-			}
-			else
-			{
-				add_chat_messages(value);
-				return init_sync();
-			}
-		}, error => {
-			console.error("Error al sincronizar:", error);
-			setTimeout(init_sync, 2000);
-		});
-}
-
-function add_chat_messages(messages)
-{
-	msgs = messages.messages;
-	for (var i = 0; i < msgs.length; i++)
-	{
-		add_chat_msg(msgs[i]);
-	}
-}
-
-function add_chat_msg(message)
-{
-	chat_position = message.position;
-	let elem = document.createElement("p");
-	elem.classList.add("text-message");
-	elem.classList.add("px-2");
-	elem.appendChild(document.createTextNode(message.payload));
-	message_area.appendChild(elem);
-}
-
-
 window.onload = setup;
-
 
