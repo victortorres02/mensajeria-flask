@@ -11,16 +11,23 @@
 
 <body>
 	<script src="/static/webclient.js" type="text/javascript" charset="utf-8"></script>
+
 	<nav class="navbar bg-dark">
 		<div class="Pingu container-fluid">
 			<a class="navbar-brand" style="color: white;" href="#">Flasky
 				<img src="/static/Tux.svg.png" alt="linuxpingu" width="30" height="20">
 			</a>
 			<ul class="nav justify-content-end">
-				<li class="nav-pills">
-					<a class="nav-link active" style="background-color: rgb(24, 36, 87);" aria-current="page"
-						href="#">Cerrar sesion</a>
-				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" style="color: white;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  Configuracion
+					</a>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="#">Perfil</a></li>
+					  <li><hr class="dropdown-divider"></li>
+					  <li><a style="background-color: red;"class="dropdown-item" href="#">Cerrar Sesion</a></li>
+					</ul>
+				  </li>
 			</ul>
 		</div>
 	</nav>
