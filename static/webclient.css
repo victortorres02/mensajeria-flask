@@ -55,3 +55,59 @@ body {
 	bottom: 0;
 	right: 17vw;
 }
+.contact_cont_on{
+	width: 300px;
+	height: 300px;
+	border-radius: 24px;
+}
+.contact_cont_off{
+	width: 300px;
+	height: 300px;
+	border-radius: 24px;
+}
+.txt_cont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 2px white;
+}
+.txt_cont > h6 {
+	font-size: 25px;
+	font-weight: bold;
+}
+.contact_list_cont-left {
+	width: 300px;
+	height: 300px;
+	display: flex;
+	justify-content: baseline;
+	align-items: flex-start;
+}
+.contact_list_cont {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: auto auto auto auto;
+	overflow: auto;
+}
+.my_contact_cont {
+	width: 80px;
+	height: 90px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: all .3 ease-in;
+}
+.my_contact_cont:hover{
+	background-color: rgb(134, 115, 221);
+}
+.my_contact_img{
+	width: 75px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.my_contact_img > img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+
+}

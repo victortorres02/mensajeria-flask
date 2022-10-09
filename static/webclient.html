@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/static/bootstrap.min.css">
-	<link rel="stylesheet" href="/static\webclient.css">
+	<link rel="stylesheet" href="/static/webclient.css">
 	<title>Mensajeria flask Webclient</title>
 </head>
 
@@ -14,7 +14,7 @@
 	<nav class="navbar bg-dark">
 		<div class="Pingu container-fluid">
 			<a class="navbar-brand" style="color: white;" href="#">Flasky
-				<img src="/static\Tux.svg.png" alt="linuxpingu" width="30" height="20">
+				<img src="/static/Tux.svg.png" alt="linuxpingu" width="30" height="20">
 			</a>
 			<ul class="nav justify-content-end">
 				<li class="nav-pills">
@@ -25,10 +25,45 @@
 		</div>
 	</nav>
 	<div class="Estructura container-fluid row  ">
-		<div class="Contactos col-2 display-6">
-			Contactos Online
+		<div class="Contactos col-3 display-6">
+			<div class="contact_cont_on">
+				<div class="txt_cont">
+					<h3>En linea</h3>
+				</div>
+				<div class="contact_list_cont-left">
+					<div id="contact" class="contact_list_cont">
+						<div class="my_contact_cont">
+							<div class="my_contact_img">
+								<img src="/static/penguin.png" alt="">
+							</div>
+							<h6>Flasky</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contact_cont_off">
+				<div class="txt_cont">
+					<h3>Contactos</h3>
+				</div>
+				<div class="contact_list_cont-left">
+					<div id="contact" class="contact_list_cont">
+						<div class="my_contact_cont">
+							<div class="my_contact_img">
+								<img src="/static/penguin.png" alt="">
+							</div>
+							<h6>Flasky</h6>
+						</div>
+						<div class="my_contact_cont">
+							<div class="my_contact_img">
+								<img src="/static/unknown.png" alt="">
+							</div>
+							<h6>Victor</h6>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="Conversacion col-8 ">
+		<div class="Conversacion col-9 ">
 			<h1 class="Random display-6">Conversación abierta</h1>
 			<div class="Chat">
 				<div class id="message_area"></div>
@@ -38,11 +73,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="Configuracion col-2 display-6">
-			Configuracion
-		</div>
 	</div>
-
 </body>
 
 </html>
