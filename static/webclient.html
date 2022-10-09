@@ -10,7 +10,6 @@
 </head>
 
 <body>
-	<h1 class="p-2 text-white">Mensajeria flask</h1>
 	<script src="/static/webclient.js" type="text/javascript" charset="utf-8"></script>
 	<nav class="navbar bg-dark">
 		<div class="container-fluid">
@@ -25,17 +24,17 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="Estructura row vw-100 vh-100">
+	<div class="Estructura container-fluid row  ">
 		<div class="Contactos col-2">
 			Contactos Online
 		</div>
-		<div class="Conversacion col-8">
-			Conversación abierta
-			<div class="Chat container-fluid">
-				<div class"overflow-auto" id="message_area"></div>
-				<div class="EntradaChat p-2">
-					<input class="" type="text" id="text_input"></input>
-					<input class="m-1" id="submit_btn" onclick="enviar()" type="button" value="Enviar"></input>
+		<div class="Conversacion col-8 ">
+			<h1 class="Random">Conversación abierta</h1>
+			<div class="Chat border">
+				<div class id="message_area"></div>
+				<div class="EntradaChat container p-2 col-4">
+					<input class="Barra col-9"type="text " id="text_input"></input>
+					<input class="m-1 col-2" id="submit_btn " onclick="enviar()" type="button" value="Enviar"></input>
 				</div>
 			</div>
 		</div>
