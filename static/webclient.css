@@ -12,32 +12,42 @@ body {
 	border-radius: 5px;
 }
 
+.navbar {
+	height: fit-content;
+	width: mi;
+}
+
 .Estructura {
 	height: 94vh;
-	width: 100.9vw;
+	width: 100.6vw;
 }
 
 .Contactos {
 	position: relative;
-	border: 2px solid white;
+	border: solid white;
+	border-radius: 30px;
 }
 
 .Conversacion {
-	border-color: 2px solid white;
+	
 }
 
 .Random {
-	border: 2px solid white;
+	border: solid white;
+	border-radius: 30px;
 }
 
 .Chat {
-	overflow-y:scroll;
-	height: 87vh
+	overflow-y: scroll;
+	height: 87vh;
+	border: solid white;
+	border-radius: 30px;
 }
 
 .Configuracion {
 	position: relative;
-	border: 2px solid white;
+	border: solid white;
+	border-radius: 30px;
 }
 
 .EntradaChat {
