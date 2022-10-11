@@ -17,8 +17,8 @@ export default class ChatRenderer {
 		elem.classList.add("text-message");
 		elem.classList.add("px-2");
 		elem.appendChild(document.createTextNode(message.message_data));
-		message_area.appendChild(elem);
-		this.render_message.set(message, elem);
+		this.message_area.appendChild(elem);
+		this.rendered_messages.set(message, elem);
 	}
 }
 
