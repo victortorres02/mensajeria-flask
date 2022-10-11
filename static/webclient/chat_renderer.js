@@ -20,5 +20,10 @@ export default class ChatRenderer {
 		this.message_area.appendChild(elem);
 		this.rendered_messages.set(message, elem);
 	}
+	clear() {
+		for (let child of Array.from(this.message_area.children))
+			this.message_area.removeChild(child);
+		this.rendered_messages = new Map();
+	}
 }
 
