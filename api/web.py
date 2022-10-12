@@ -19,6 +19,15 @@ def api_unauthorized(error):
             'reason': 'unauthorized'
             }
 
+@bp.route('/get_profile_data', methods=['GET', 'POST'])
+@require_session
+def get_profile_data(user, session):
+    return {
+            'status': 'ok',
+            'user_id': user.id,
+            'username': user.username,
+            }
+
 @bp.route('/list_contacts', methods=['GET', 'POST'])
 @require_session
 def list_contacts(user, session):
