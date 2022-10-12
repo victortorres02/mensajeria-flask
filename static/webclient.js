@@ -4,6 +4,7 @@ import ChatWatcher from "./webclient/chat_watcher.js";
 import ChatSelector from "./webclient/chat_selector.js";
 import Chat from "./webclient/chat.js";
 import User from "./webclient/chat.js";
+import api_call from "./webclient/api_call.js";
 import { get_self_user_id } from "./webclient/profile.js";
 
 
@@ -53,13 +54,7 @@ function enviar()
 	datos.message_type = 1;
 	datos.message_data = texto;
 
-	fetch("/api/web/send_message", {
-		method: 'POST',
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(datos)
-	})
+	api_call("/api/web/send_message", datos)
 	.catch(error => {
 		console.error("Error al enviar el mensaje", error);
 	});
