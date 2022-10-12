@@ -5,11 +5,25 @@ body {
 	color: white;
 }
 
+.message-container {
+	flex: 1 0 100%;
+}
+
 .text-message {
 	width: fit-content;
 	color: #F5F5F5;
 	background-color: #446874;
 	border-radius: 5px;
+}
+
+.self-message {
+	float: right;
+}
+
+.message-area {
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: wrap;
 }
 
 .navbar {
