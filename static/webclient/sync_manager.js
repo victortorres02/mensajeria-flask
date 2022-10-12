@@ -44,6 +44,8 @@ export default class SyncManager {
 		return this.add_async_obj(chat, 250);
 	}
 	add_async_obj(obj, sync_period) {
+		if (sync_period === undefined || sync_period < 1)
+			throw new Error("sync_period inválido");
 		let async_obj = new AsyncObj(this, obj, sync_period);
 		this.async_objs.push(async_obj);
 		return async_obj;
