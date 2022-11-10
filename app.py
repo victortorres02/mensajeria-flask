@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, redirect, url_for
+from flask import Flask, request, abort, redirect, url_for, send_file, send_from_directory
 from auth import create_session, InvalidCredentialsError
 import api.web
 
@@ -26,6 +26,14 @@ def login():
         return response, 302
     except InvalidCredentialsError:
         abort(401)
+
+@app.route('/static/webclient.js')
+def webclient_js():
+    return send_file('static/webclient.js', mimetype='text/javascript')
+
+@app.route('/static/webclient/<path:name>')
+def webclient_dir(name):
+    return send_from_directory('static/webclient', name, mimetype='text/javascript')
 
 app.register_blueprint(api.web.bp)
 
