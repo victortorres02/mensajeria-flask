@@ -1,6 +1,6 @@
 from flask import Blueprint, request, abort, redirect, url_for
 from werkzeug.datastructures import MultiDict, ImmutableMultiDict
-import werkzeug
+import werkzeug.exceptions
 from sqlalchemy import select, and_
 from sqlalchemy.exc import NoResultFound
 from datetime import datetime
@@ -35,9 +35,9 @@ def list_contacts(user, session):
             'status': 'ok',
             'contacts': [{
                 'id': contact.id,
-                'use/rname': contact.username,
+                'username': contact.username,
                 # TODO: implementar los contactos!
-                } for contact in session.query(Users).all()]
+                } for contact in session.query(User).all() if contact != user]
             }
     session.commit()
     return contacts
