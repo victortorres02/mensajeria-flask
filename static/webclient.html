@@ -34,11 +34,12 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="Estructura container-fluid row  ">
-		<div class="Contactos col-3 display-6">
+
+	<section class="Estructura border container-fluid  row  ">
+		<article class="Contactos col-3 display-6">
 			<div class="contact_cont_on">
 				<div class="txt_cont">
-					<h3>En linea</h3>
+					<h3>Online</h3> 
 				</div>
 				<div class="contact_list_cont-left">
 					<div id="contacts_area" class="contact_list_cont">
@@ -47,25 +48,29 @@
 			</div>
 			<div class="contact_cont_off">
 				<div class="txt_cont">
-					<h3>Contactos</h3>
+					<h3>Chats</h3>
 				</div>
 				<div class="contact_list_cont-left">
 					<div id="users_area" class="contact_list_cont">
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="Conversacion col-9 ">
-			<h1 class="Random display-6">Conversación abierta</h1>
-			<div class="Chat">
+		</article>
+		
+		<article class="Conversacion container-fluid col-9 ">
+			<div class="Perfilname container row display-6 ">
+				<h1 class ="Name col-11">Conversación abierta</h1>
+				<button type="button" class="btn-close position-absolute top-1 end-0" aria-label="Close"></button>
+			</div>
+			<div class="Chat container-fluid  rounded-start">
 				<div class="message-area" id="message_area"></div>
-				<div class="EntradaChat container p-2 col-4">
-					<input class="Barra col-8" type="text " id="text_input"></input>
-					<input class="m-1 col-2" id="submit_btn " onclick="enviar()" type="button" value="Enviar"></input>
+				<div class="EntradaChat container-fluid col-9 ">
+					<input class="Barra col-9" type="text " id="text_input"></input>
+					<input class="col-2" id="submit_btn " onclick="enviar()" type="button" value="Enviar"></input>
+					<button type="button" class="btn btn-outline-primary">adjunto</button>
 				</div>
 			</div>
-		</div>
-	</div>
+		</article>
+	</section>
 </body>
-
 </html>

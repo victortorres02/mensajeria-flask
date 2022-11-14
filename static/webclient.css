@@ -4,7 +4,97 @@ body {
 	background-size: cover;
 	color: white;
 }
+.Configuracion {
+	position: relative;
+	border: solid white;
+	border-radius: 30px;
+}
+.Estructura {
+	height: 94vh;
+	width: 100.6vw;
+	
+}
+.contact_cont_on{
+	width:auto;
+	height:30vh;
+	border-radius: 24px;
+}
+.contact_cont_off{
+	width:auto;
+	border-radius: 24%;
+}
+.txt_cont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 2px white;
+}
+.txt_cont > h6 {
+	font-size: 25px;
+	font-weight: bold;
+}
+.contact_list_cont-left {
+	width:auto;
+	height: 35vh;
+	display: flex;
+	justify-content: baseline;
+	align-items: flex-start;
+}
+.contact_list_cont {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: auto auto auto auto;
+	overflow:auto;
+}
+.my_contact_cont {
+	width: 80px;
+	height: 90px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: all .3 ease-in;
+}
+.my_contact_cont:hover{
+	background-color: rgb(134, 115, 221);
+}
 
+.my_contact_img{
+	width: 75px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.my_contact_img > img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+  }
+
+.Contactos {
+	position: relative;
+	/* border: solid white;
+	border-radius: 30px; */
+	height:92.5vh;
+}
+
+.Perfilname {
+}
+.Conversacion {
+	border-left: solid white 3px;
+}
+.Chat {
+	overflow-y: scroll;
+	height: 83.5vh;
+	width: 74.3vw;
+	border-top:solid #F5F5F5;
+}
+
+.EntradaChat {
+	position: absolute;
+	bottom: 1vh;
+	right: 0vw;
+	border-top: solid white 3px;
+}
 .message-container {
 	flex: 1 0 100%;
 }
@@ -30,95 +120,7 @@ body {
 	height: fit-content;
 	width: mi;
 }
-
-.Estructura {
-	height: 94vh;
-	width: 100.6vw;
+.Barra{
+	background:gray;	
 }
 
-.Contactos {
-	position: relative;
-	border: solid white;
-	border-radius: 30px;
-	height:92.5vh;
-}
-
-.Random {
-	border: solid white;
-	border-radius: 30px;
-}
-
-.Chat {
-	overflow-y: scroll;
-	height: 86vh;
-	border: solid white;
-	border-radius: 30px;
-}
-
-.Configuracion {
-	position: relative;
-	border: solid white;
-	border-radius: 30px;
-}
-
-.EntradaChat {
-	position: absolute;
-	bottom: 1vh;
-	right: 0vw;
-}
-.contact_cont_on{
-	width: 300px;
-	height: 300px;
-	border-radius: 24px;
-}
-.contact_cont_off{
-	width: 300px;
-	height: 300px;
-	border-radius: 24px;
-}
-.txt_cont{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-bottom: solid 2px white;
-}
-.txt_cont > h6 {
-	font-size: 25px;
-	font-weight: bold;
-}
-.contact_list_cont-left {
-	width: 300px;
-	height: 300px;
-	display: flex;
-	justify-content: baseline;
-	align-items: flex-start;
-}
-.contact_list_cont {
-	display: grid;
-	gap: 10px;
-	grid-template-columns: auto auto auto auto;
-	overflow:auto;
-}
-.my_contact_cont {
-	width: 80px;
-	height: 90px;
-	border-radius: 15px;
-	cursor: pointer;
-	transition: all .3 ease-in;
-}
-.my_contact_cont:hover{
-	background-color: rgb(134, 115, 221);
-}
-.my_contact_img{
-	width: 75px;
-	height: 65px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.my_contact_img > img {
-	width: 60px;
-	height: 60px;
-	border-radius: 50%;
-
-}
