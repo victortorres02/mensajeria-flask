@@ -5,12 +5,21 @@ from database import *
 
 init_db()
 
-create_user('torres', 'torres@ekiwa.org', 'hola')
-create_user('ferran', 'baguette@molino.com', 'bolillo')
+def get_user(name):
+    return session.query(User).where(User.username == name).one()
+
+def get_or_create_user(name, email, passwd):
+    try:
+        return get_user(name)
+    except NoResultFound:
+        create_user(name, email, passwd)
+        return get_user(name)
+
 
 with Session() as session:
-    torres = session.query(User).where(User.username == 'torres').one()
-    ferran = session.query(User).where(User.username == 'ferran').one()
+    torres = get_or_create_user('torres', 'torres@ekiwa.org', 'hola')
+    ferran = get_or_create_user('ferran', 'baguette@molino.com', 'bolillo')
+    cuadri = get_or_create_user('cuadri', 'añoña@nuevaalianza.com', 'azul')
 
     chat = UserChat(chat_type=ChatType.personal)
     chat.members.extend((torres, ferran))

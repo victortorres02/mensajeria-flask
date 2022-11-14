@@ -1,10 +1,35 @@
 import api_call from "./api_call.js";
 
-export default class Chat {
-	constructor(chat_id) {
+const ChatType = {
+	personal: 1,
+	group: 2,
+};
+
+class Chat {
+	//TODO: Jalar la información directamente desde el JSON
+	constructor(chat_id, name, type, members) {
 		this.id = chat_id;
+		this.name = name;
+		this.type = type;
+		this.members = members;
 		this.listed_messages = [];
 		this.retrieved_messages = [];
+	}
+	set_self_user_id(user_id) {
+		if (user_id.then === undefined)
+			this.self_user_id = user_id;
+		else
+			user_id.then(id => {this.self_user_id = id;});
+	}
+	get_name() {
+		if (this.name === undefined || this.name === null)
+		{
+			return this.members.filter(user => user.id != this.self_user_id).map(user => user.username).join(", ");
+		}
+		else
+		{
+			return this.name;
+		}
 	}
 	async do_sync() {
 		let api_args = Object();
@@ -61,3 +86,4 @@ export default class Chat {
 	}
 }
 
+export {Chat as default, ChatType};

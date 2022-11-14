@@ -6,6 +6,7 @@ import Chat from "./webclient/chat.js";
 import User from "./webclient/chat.js";
 import api_call from "./webclient/api_call.js";
 import { get_self_user_id } from "./webclient/profile.js";
+import ContactWatcher from "./webclient/contact_watcher.js";
 
 
 var sync_manager;
@@ -27,10 +28,16 @@ function setup()
 
 	let chat_watcher = new ChatWatcher();
 	chat_selector = new ChatSelector(chat_renderer, contacts_area, users_area);
+	chat_selector.set_self_user_id(get_self_user_id());
 
 	let chat_watcher_async_obj = sync_manager.add_async_obj(chat_watcher, 3000);
 	chat_watcher_async_obj.after_hooks.push(chat_selector.check_new_chats.bind(chat_selector));
 	chat_watcher_async_obj.force_now();
+
+	let contact_watcher = new ContactWatcher();
+	let contact_watcher_async_obj = sync_manager.add_async_obj(contact_watcher, 3000);
+	contact_watcher_async_obj.after_hooks.push(chat_selector.check_new_contacts.bind(chat_selector));
+	contact_watcher_async_obj.force_now();
 }
 
 function enviar()
