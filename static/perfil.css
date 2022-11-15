@@ -1,0 +1,125 @@
+body {
+	background: linear-gradient(155deg, #102537, #5050A0);
+	background-attachment: fixed;
+	background-size: cover;
+	color: white;
+}
+.Configuracion {
+	position: relative;
+	border: solid white;
+	border-radius: 30px;
+}
+.Estructura {
+	height: 94vh;
+	width: 100.6vw;
+	
+}
+.contact_cont_on{
+	width:auto;
+	height:30vh;
+	border-radius: 24px;
+}
+.contact_cont_off{
+	width:auto;
+	border-radius: 24%;
+}
+.txt_cont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 2px white;
+}
+.txt_cont > h6 {
+	font-size: 25px;
+	font-weight: bold;
+}
+.contact_list_cont-left {
+	width:auto;
+	height: 35vh;
+	display: flex;
+	justify-content: baseline;
+	align-items: flex-start;
+}
+.contact_list_cont {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: auto auto auto auto;
+	overflow:auto;
+}
+.my_contact_cont {
+	width: 80px;
+	height: 90px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: all .3 ease-in;
+}
+.my_contact_cont:hover{
+	background-color: rgb(134, 115, 221);
+}
+
+.my_contact_img{
+	width: 75px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.my_contact_img > img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+  }
+
+.Contactos {
+	position: relative;
+	/* border: solid white;
+	border-radius: 30px; */
+	height:92.5vh;
+}
+
+.Perfilname {
+}
+.Conversacion {
+	border-left: solid white 3px;
+}
+.Chat {
+	overflow-y: scroll;
+	height: 83.5vh;
+	width: 74.3vw;
+	border-top:solid #F5F5F5;
+}
+
+.EntradaChat {
+	position: absolute;
+	bottom: 1vh;
+	right: 0vw;
+	border-top: solid white 3px;
+}
+.message-container {
+	flex: 1 0 100%;
+}
+
+.text-message {
+	width: fit-content;
+	color: #F5F5F5;
+	background-color: #446874;
+	border-radius: 5px;
+}
+
+.self-message {
+	float: right;
+}
+
+.message-area {
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: wrap;
+}
+
+.navbar {
+	height: fit-content;
+	width: mi;
+}
+.Barra{
+	background:gray;	
+}
