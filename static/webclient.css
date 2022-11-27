@@ -11,8 +11,8 @@ body {
 }
 .Estructura {
 	height: 94vh;
-	width: 100.6vw;
-	
+	width: 100vw;
+	margin:0%;
 }
 .contact_cont_on{
 	width:auto;
@@ -81,19 +81,21 @@ body {
 }
 .Conversacion {
 	border-left: solid white 3px;
+	padding: 0%;
+	margin:0%;
 }
 .Chat {
 	overflow-y: scroll;
 	height: 83.5vh;
-	width: 74.3vw;
+	width: 74.4vw;
 	border-top:solid #F5F5F5;
+	border-bottom: solid white;
 }
 
 .EntradaChat {
 	position: absolute;
 	bottom: 1vh;
 	right: 0vw;
-	border-top: solid white 3px;
 }
 .message-container {
 	flex: 1 0 100%;
